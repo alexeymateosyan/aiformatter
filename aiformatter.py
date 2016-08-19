@@ -44,7 +44,7 @@ class Formatter:
 		self.rnn.reset_prediction()
 		cursor = tu.cursor
 		rng = cursor.extent
-		with open(filepath, 'wb') as f:
+		with open(filepath, 'wb') as f, open('inp.debug', 'w') as f_inp, open('out.debug', 'w') as f_out:
 			last_offset  = 0
 			next_char_prediction = 0
 			last_token = None
@@ -72,12 +72,15 @@ class Formatter:
 				inp += token.spelling.decode('utf-8')
 
 				# inserting predicted white spaces
+				continuous_whitespaces = True
 				for ch in inp[:-1]:
+					f_inp.write(ch)
 					next_char_prediction = self.rnn.predict_char(ch)
-					if next_char_prediction.isspace():
+					f_out.write(next_char_prediction)
+					if continuous_whitespaces and next_char_prediction.isspace():
 						predicted_white_spaces += next_char_prediction
 					else:
-						break
+						continuous_whitespaces = False
 				last_char = inp[-1]
 
 				# forming output sequence
