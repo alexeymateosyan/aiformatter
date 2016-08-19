@@ -5,8 +5,8 @@ C++ formatter based on RNN and clang
 * Ubuntu
 * Python3
  * **sudo apt-get install python3**
-* NumPy
- * **sudo pip3 install numpy**
+* NumPy/(SciPy - optional)
+ * **sudo apt-get install python3-numpy python3-scipy**
 * Clang 3.8 + patched bindings included (may be 3.6 also supported)
  * **sudo apt-get install libclang-3.8-dev**
  * Configuring of aiformatter.py will be needed possibly to point clang.so location
