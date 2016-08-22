@@ -13,10 +13,10 @@ C++ formatter based on RNN and clang
 
 ## Usage
 
-./ailearner.py <sample file, concatenation of many Mbs of code base> [APPEND]
+./ailearner.py \<sample file, concatenation of many Mbs of code base\> [APPEND]
 
 This program takes existed code base on input and produces model.dat - learned RNN.
 
-./aiformatter.py <source file> [model file]
+./aiformatter.py \<source file\> [model file]
 
 Formatter takes source file and model and produces source file formatted according to model.
